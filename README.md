@@ -7,3 +7,5 @@
 - Routing kullanılmalıdır.
 - Model binding işlemleri hem body den hemde query den yapılacak şekilde örneklendirilmelidir. Bonus:
 - Standart crud işlemlerine ek olarak, listeleme ve sıralama işlevleride eklenmelidir. Örn: /api/products/list?name=abc
+
+Uygulamayı çalıştırmak için Postman vb. türlerdeki platformları ya da herhangi bir web tarayıcı(Chrome, Mozilla vb.) kullanabilirsiniz.
