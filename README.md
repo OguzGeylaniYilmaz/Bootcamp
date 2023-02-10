@@ -10,3 +10,4 @@
 
 Uygulamayı çalıştırmak için Postman vb. türlerdeki platformları ya da herhangi bir web tarayıcı(Chrome, Mozilla vb.) kullanabilirsiniz.
 .Net version 5.0
+
