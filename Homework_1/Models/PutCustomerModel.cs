@@ -7,6 +7,10 @@ namespace Homework_1.Models
         [Required, MinLength(2), MaxLength(10)]
         public string CustomerName { get; set; }
 
+        [Required, MinLength(2), MaxLength(15)]
+        public string CustomerLastName { get; set; }
+
+
         [Required, EmailAddress(ErrorMessage = "Mail address ist not valid")]
         public string CustomerMail { get; set; }
 
