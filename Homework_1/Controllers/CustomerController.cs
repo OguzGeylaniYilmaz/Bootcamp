@@ -1,4 +1,5 @@
 ﻿using Homework_1.Entities;
+using Homework_1.Extensions.CustomerExtensions;
 using Homework_1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,11 +15,11 @@ namespace Homework_1.Controllers
         public CustomerController()
         {
             customers = new List<Customer>();
-            customers.Add(new Customer { ID = 1, Name = "Julia", Mail = "example@gmail.com", Phone = "(444) 333 222", Status = true });
-            customers.Add(new Customer { ID = 2, Name = "Max", Mail = "example2@gmail.com", Phone = "(444) 222 111", Status = true });
-            customers.Add(new Customer { ID = 3, Name = "Robert", Mail = "example3@gmail.com", Phone = "(444) 444 000", Status = true });
-            customers.Add(new Customer { ID = 4, Name = "Anakin", Mail = "example4@gmail.com", Phone = "(444) 666 555", Status = false });
-            customers.Add(new Customer { ID = 5, Name = "Padme", Mail = "example5@gmail.com", Phone = "(444) 777 111", Status = true });
+            customers.Add(new Customer { ID = 1, Name = "Julia", LastName = "Roberts", Mail = "example@gmail.com", Phone = "(444) 333 222", Status = true });
+            customers.Add(new Customer { ID = 2, Name = "Max", LastName = "Thunder", Mail = "example2@gmail.com", Phone = "(444) 222 111", Status = true });
+            customers.Add(new Customer { ID = 3, Name = "Robert", LastName = "Sparrow", Mail = "example3@gmail.com", Phone = "(444) 444 000", Status = true });
+            customers.Add(new Customer { ID = 4, Name = "Anakin", LastName = "Skywalker", Mail = "example4@gmail.com", Phone = "(444) 666 555", Status = false });
+            customers.Add(new Customer { ID = 5, Name = "Padme", LastName = "Amidala", Mail = "example5@gmail.com", Phone = "(444) 777 111", Status = true });
 
         }
         // GET: api/<CustomertController>
@@ -27,6 +28,7 @@ namespace Homework_1.Controllers
         {
             if (customers.Count == 0)
                 return NotFound("The list is empty");
+            customers.RemoveDuplicates();  //Extension method çağırımı
             return Ok(customers.Where(x => x.Status == true).ToList());
         }
 
@@ -64,6 +66,7 @@ namespace Homework_1.Controllers
                 {
                     ID = value.CustomerID,
                     Name = value.CustomerName,
+                    LastName = value.CustomerLastName,
                     Phone = value.CustomerPhone,
                     Mail = value.CustomerPhone,
                     Status = value.CustomerStatus
@@ -83,6 +86,7 @@ namespace Homework_1.Controllers
                 {
                     ID = id,
                     Name = value.CustomerName,
+                    LastName = value.CustomerLastName,
                     Mail = value.CustomerMail,
                     Phone = value.CustomerPhone,
                     Status = value.CustomerStatus
@@ -90,8 +94,9 @@ namespace Homework_1.Controllers
                 return CreatedAtRoute("Get", new { id = id }, existingCustomer);
             }
 
-            //Sadece isim ve mail bilgisini aldım.
+            //Sadece isim, soyisim ve mail bilgisini aldım.
             existingCustomer.Name = value.CustomerName;
+            existingCustomer.LastName = value.CustomerLastName;
             existingCustomer.Mail = value.CustomerMail;
 
             return NoContent();

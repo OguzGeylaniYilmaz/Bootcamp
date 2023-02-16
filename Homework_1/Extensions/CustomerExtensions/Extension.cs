@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Homework_1.Entities;
+using System.Linq;
 
 namespace Homework_1.Extensions.CustomerExtensions
 {
@@ -16,7 +15,7 @@ namespace Homework_1.Extensions.CustomerExtensions
 
         //koleksiyon içerisinde tekrar eden kayıtları silmenize yarayacak başla bir extension metod
 
-        public static List<Customer> RemoveDuplicates<T>(this List<Customer> input)
+        public static List<Customer> RemoveDuplicates<Customer>(this List<Customer> input)
         {
             Dictionary<Customer, int> uniqueStore = new Dictionary<Customer, int>();
             List<Customer> finalList = new List<Customer>();
