@@ -11,3 +11,14 @@
 Uygulamayı çalıştırmak için Postman vb. türlerdeki platformları ya da herhangi bir web tarayıcı(Chrome, Mozilla vb.) kullanabilirsiniz.
 .Net version 5.0
 
+## 2.Ödev İçerik
+- İlk hafta geliştirdiğiniz api kullanılacaktır.
+- Rest standartlarına uygun olmalıdır.
+- Solid prensiplerine uyulmalıdır.
+- Fake servisler geliştirilerek Dependency injection kullanılmalıdır.
+- Api'nizde kullanılmak üzere extension geliştirin.
+- Projede swagger implementasyonu gerçekleştirilmelidir.
+- Global loglama yapan bir middleware(sadece actiona girildi gibi çok basit düzeyde)
+Bonus
+- Fake bir kullanıcı giriş sistemi yapın ve custom bir attribute ile bunu kontrol edin.
+- Global exception middleware i oluşturun
